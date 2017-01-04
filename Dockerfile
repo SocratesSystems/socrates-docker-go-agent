@@ -38,3 +38,7 @@ RUN mkdir /go/.ssh
 ADD https://github.com/krallin/tini/releases/download/v0.10.0/tini /tini
 RUN chmod +x /tini
 ENTRYPOINT ["/tini", "--"]
+
+# Run the bootstrapper as the `go` user
+USER go
+CMD /go/go-agent
